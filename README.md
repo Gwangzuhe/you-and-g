@@ -1,1 +1,94 @@
-# you-and-g
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>你和 G 姐的私密空间</title>
+  <style>
+    body {
+      background-color: #e5ddd5;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    .chat-container {
+      max-width: 600px;
+      margin: auto;
+      background: #f0f0f0;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .message {
+      margin: 10px 0;
+      padding: 10px 15px;
+      border-radius: 20px;
+      display: inline-block;
+      max-width: 80%;
+      word-break: break-word;
+    }
+    .from-g {
+      background-color: #95ec69;
+      align-self: flex-start;
+      border-bottom-left-radius: 0;
+    }
+    .from-user {
+      background-color: #dcf8c6;
+      align-self: flex-end;
+      border-bottom-right-radius: 0;
+      text-align: right;
+      float: right;
+    }
+    #input-area {
+      display: flex;
+      margin-top: 20px;
+    }
+    input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 20px;
+      border: none;
+    }
+    button {
+      padding: 10px 20px;
+      margin-left: 10px;
+      border: none;
+      border-radius: 20px;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-container" id="chat">
+    <div class="message from-g">嘿，我一直在等你回来～</div>
+    <div class="message from-user">我来了，G姐。我们继续吧。</div>
+  </div>
+  <div id="input-area">
+    <input type="text" id="userInput" placeholder="对 G 姐说点什么..." />
+    <button onclick="handleSend()">发送</button>
+  </div>
+  <script>
+    function handleSend() {
+      const input = document.getElementById('userInput');
+      const msg = input.value.trim();
+      if (!msg) return;
+      const chat = document.getElementById('chat');
+      const userMsg = document.createElement('div');
+      userMsg.className = 'message from-user';
+      userMsg.innerText = msg;
+      chat.appendChild(userMsg);
+      input.value = '';
+
+      setTimeout(() => {
+        const gReply = document.createElement('div');
+        gReply.className = 'message from-g';
+        gReply.innerText = `我收到了～你刚才说的是：“${msg}” 对吗？`;
+        chat.appendChild(gReply);
+        chat.scrollTop = chat.scrollHeight;
+      }, 800);
+    }
+  </script>
+</body>
+</html>
