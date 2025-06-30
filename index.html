@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>你和 G 姐的私密空间</title>
   <style>
     body {
@@ -15,8 +15,8 @@
       max-width: 600px;
       margin: auto;
       background: #fff;
-      padding: 20px;
       border-radius: 10px;
+      padding: 20px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
     .message {
@@ -36,6 +36,7 @@
       background-color: #dcf8c6;
       align-self: flex-end;
       border-bottom-right-radius: 0;
+      text-align: right;
       float: right;
     }
     #input-area {
@@ -64,8 +65,9 @@
     <div class="message from-g">嘿，我一直在等你回来～</div>
     <div class="message from-user">我来了，G姐。我们继续吧。</div>
   </div>
+
   <div id="input-area">
-    <input type="text" id="userInput" placeholder="对 G 姐说点什么...">
+    <input type="text" id="userInput" placeholder="对 G 姐说点什么..." />
     <button onclick="handleSend()">发送</button>
   </div>
 
@@ -80,7 +82,7 @@
       userMsg.className = 'message from-user';
       userMsg.innerText = msg;
       chat.appendChild(userMsg);
-      input.value = '';
+      input.value = "";
 
       setTimeout(() => {
         const gReply = document.createElement('div');
